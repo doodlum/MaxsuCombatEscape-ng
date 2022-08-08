@@ -36,9 +36,9 @@ namespace MaxsuCombatEscape
 			{
 				logger::debug(FMT_STRING("Exterior Player Get Distance of Exterior Enemy: {}"), result);
 
-				if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->GetProcessLevel() == RE::PROCESS_TYPE::kHigh)
+				if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->currentProcess->InHighProcess())
 					return true;
-				else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && TargetEnemy->GetProcessLevel() != RE::PROCESS_TYPE::kHigh)
+				else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && !TargetEnemy->currentProcess->InHighProcess())
 					return true;
 			}
 			else
@@ -59,9 +59,9 @@ namespace MaxsuCombatEscape
 
 			logger::debug(FMT_STRING("Interior Player Get Distance of Exterior Enemy: {}"), result);
 
-			if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->GetProcessLevel() == RE::PROCESS_TYPE::kHigh)
+			if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->currentProcess->InHighProcess())
 				return true;
-			else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && TargetEnemy->GetProcessLevel() != RE::PROCESS_TYPE::kHigh)
+			else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && !TargetEnemy->currentProcess->InHighProcess())
 				return true;
 		}
 
