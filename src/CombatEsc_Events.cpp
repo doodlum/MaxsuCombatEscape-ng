@@ -57,7 +57,7 @@ namespace MaxsuCombatEscape
 			return EventResult::kContinue;
 		}
 
-		if (a_event->flags == RE::BGSActorCellEvent::CellFlag::kFlags_Enter)
+		if (a_event->flags == RE::BGSActorCellEvent::CellFlag::kEnter)
 		{
 			logger::debug(FMT_STRING("Enter a Cell Name {}, ID {:x}"), playercell->GetFormEditorID(), playercell->GetFormID());
 
@@ -115,7 +115,7 @@ namespace MaxsuCombatEscape
 				}
 			}
 		}
-		else if(a_event->flags == RE::BGSActorCellEvent::CellFlag::kFlags_Leave)
+		else if(a_event->flags == RE::BGSActorCellEvent::CellFlag::kLeave)
 		{
 			logger::debug(FMT_STRING("Leave a Cell Name {}, ID {:x}"), playercell->GetFormEditorID(), playercell->GetFormID());
 
