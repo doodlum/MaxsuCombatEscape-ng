@@ -1,26 +1,34 @@
 {
+	    "default-registry": {
+        "kind": "git",
+        "repository": "https://github.com/microsoft/vcpkg.git",
+        "baseline": "cc288af760054fa489574bd8e22d05aa8fa01e5c"
+    },
     "registries": [
-        {
-            "kind": "git",
-            "repository": "https://gitlab.com/colorglass/vcpkg-colorglass",
-            "baseline": "7abd808aa0ae8d65710f3a9f77f15937530309aa",
-            "packages": [
-                "articuno",
-                "bethesda-skyrim-scripts",
-                "commonlibsse",
-                "commonlibsse-ng",
-                "commonlibsse-ng-ae",
-                "commonlibsse-ng-flatrim",
-                "commonlibsse-ng-prebuilt",
-                "commonlibsse-ng-se",
-                "commonlibsse-ng-vr",
-                "commonlibsse-po3-ae",
-                "commonlibsse-po3-se",
-                "commonlibvr",
-                "gluino",
-                "script-extender-common",
-                "skse"
-            ]
-        }
+      {
+        "kind": "git",
+		"baseline": "6fb127f7d425ae3cf3fab0f79005d907c885c0d8",
+        "repository": "https://gitlab.com/colorglass/vcpkg-colorglass",
+        "packages": [
+          "articuno",
+          "bethesda-skyrim-scripts",
+          "commonlibsse",
+          "commonlibsse-ng",
+          "commonlibsse-ng-ae",
+          "commonlibsse-ng-flatrim",
+          "commonlibsse-ng-prebuilt",
+          "commonlibsse-ng-se",
+          "commonlibsse-ng-vr",
+          "commonlibsse-po3-ae",
+          "commonlibsse-po3-se",
+          "commonlibvr",
+          "fully-dynamic-game-engine",
+          "gluino",
+          "hoshi",
+          "script-extender-common",
+          "skse",
+          "tsl-hat-trie"
+        ]
+      }
     ]
 }

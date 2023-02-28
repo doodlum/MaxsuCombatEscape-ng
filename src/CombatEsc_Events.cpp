@@ -17,7 +17,7 @@ namespace MaxsuCombatEscape
 
 		static CellEventHandler Cell_handler;
 
-		PC->AddEventSink(&Cell_handler);
+		PC->AsBGSActorCellEventSource()->AddEventSink(&Cell_handler);
 
 		logger::info("Register Cell Event Sink!");
 	}
@@ -67,7 +67,7 @@ namespace MaxsuCombatEscape
 				return EventResult::kContinue;
 			}
 
-			for (auto ActorHadnler : PC->actorsToDisplayOnTheHUDArray)
+			for (auto ActorHadnler : PC->GetPlayerRuntimeData().actorsToDisplayOnTheHUDArray)
 			{
 				auto target = ActorHadnler.get();
 

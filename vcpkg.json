@@ -9,9 +9,10 @@
     "features": {
         "plugin": {
             "description": "Build the SKSE plugin.",
-            "dependencies": [
-                "commonlibsse-ng"
-            ]
+          "dependencies": [
+            "commonlibsse-ng-flatrim",
+            "rsm-binary-io"
+          ]
         }
     },
     "default-features": [
