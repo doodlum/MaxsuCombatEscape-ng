@@ -1,6 +1,7 @@
 #include "CombatEsc_Functinos.h"
 #include "CombatEsc_DataHandler.h"
 
+
 namespace MaxsuCombatEscape
 {
 	bool ShouldExteriorEnemyStopCombat(RE::PlayerCharacter* thisPC, RE::FormID PCEnterCell, RE::Actor* TargetEnemy)
@@ -36,9 +37,9 @@ namespace MaxsuCombatEscape
 			{
 				logger::debug(FMT_STRING("Exterior Player Get Distance of Exterior Enemy: {}"), result);
 
-				if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->currentProcess->InHighProcess())
+				if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->GetActorRuntimeData().currentProcess->InHighProcess())
 					return true;
-				else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && !TargetEnemy->currentProcess->InHighProcess())
+				else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && !TargetEnemy->GetActorRuntimeData().currentProcess->InHighProcess())
 					return true;
 			}
 			else
@@ -46,7 +47,7 @@ namespace MaxsuCombatEscape
 		}
 		else if (PlayerCell->IsInteriorCell() && TargetCell->IsExteriorCell())
 		{
-			auto result = thisPC->exteriorPosition.GetDistance(TargetEnemy->GetPosition());		//Get Distance Bewteen Player's Last Recorded Exterior Position To Exterior Enemy's Position
+			auto result = thisPC->GetPlayerRuntimeData().exteriorPosition.GetDistance(TargetEnemy->GetPosition());  //Get Distance Bewteen Player's Last Recorded Exterior Position To Exterior Enemy's Position
 
 			auto LastInterDoorPos = GetLastPlayerInterDoorAct(thisPC);
 
@@ -59,9 +60,9 @@ namespace MaxsuCombatEscape
 
 			logger::debug(FMT_STRING("Interior Player Get Distance of Exterior Enemy: {}"), result);
 
-			if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->currentProcess->InHighProcess())
+			if (result >= datahandler->distanceValue.GetLoadedDistance() && TargetEnemy->GetActorRuntimeData().currentProcess->InHighProcess())
 				return true;
-			else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && !TargetEnemy->currentProcess->InHighProcess())
+			else if (result >= datahandler->distanceValue.GetUnLoadedDistance() && !TargetEnemy->GetActorRuntimeData().currentProcess->InHighProcess())
 				return true;
 		}
 

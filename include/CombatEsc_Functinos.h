@@ -14,7 +14,7 @@ namespace MaxsuCombatEscape
 			return InterDoorPos;
 		}
 
-		auto curpro = thisPC->currentProcess;
+		auto curpro = thisPC->GetActorRuntimeData().currentProcess;
 
 		if (!curpro)
 		{
