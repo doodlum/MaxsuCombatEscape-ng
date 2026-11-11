@@ -4,7 +4,10 @@
 #pragma warning(disable: 5105)
 #pragma warning(disable: 4189)
 
-#undef ENABLE_SKYRIM_VR
+// Fork fix: upstream had `#undef ENABLE_SKYRIM_VR` here while the CommonLibSSE-NG it links is built with SE+AE+VR.
+// That makes SKYRIM_REL_VR_VIRTUAL expand to a plain `virtual`, so Actor::IsInCombat/StopCombat were compiled to
+// vtable slots 0xE4/0xE6 (the VR layout). On Skyrim SE/AE (incl. 1.7.x) those slots are UpdateCombat() and an
+// unrelated function, which crashed in combat pathing (SkyrimSE.exe+04D76C8). Do not undefine the runtime macros.
 
 #if defined(FALLOUT4)
 #	include "F4SE/F4SE.h"

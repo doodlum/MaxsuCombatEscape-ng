@@ -41,7 +41,11 @@ void InitializeLog()
 	spdlog::set_pattern("[%l] %v"s);
 }
 
+#ifdef MCE_NG  // alandtse CommonLibSSE-NG: SKSEPluginLoad() exports SKSEPlugin_Load
+SKSEPluginLoad(const SKSE::LoadInterface* a_skse)
+#else
 EXTERN_C [[maybe_unused]] __declspec(dllexport) bool SKSEAPI SKSEPlugin_Load(const SKSE::LoadInterface* a_skse)
+#endif
 {
 #ifndef NDEBUG
 	while (!IsDebuggerPresent()) {};
@@ -58,6 +62,7 @@ EXTERN_C [[maybe_unused]] __declspec(dllexport) bool SKSEAPI SKSEPlugin_Load(con
 	return true;
 }
 
+#ifndef MCE_NG  // the ng build (alandtse CommonLibSSE-NG) generates the SKSEPluginInfo block, see ng.cmake
 EXTERN_C [[maybe_unused]] __declspec(dllexport) constinit auto SKSEPlugin_Version = []() noexcept {
 	SKSE::PluginVersionData v;
 	v.PluginName("PluginName");
@@ -74,3 +79,4 @@ EXTERN_C [[maybe_unused]] __declspec(dllexport) bool SKSEAPI SKSEPlugin_Query(co
 	pluginInfo->version = SKSEPlugin_Version.pluginVersion;
 	return true;
 }
+#endif

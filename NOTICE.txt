@@ -1,0 +1,10 @@
+Better Combat Escape - NG (vtable fix fork)
+
+Source: https://github.com/doodlum/MaxsuCombatEscape-ng (commit 7bcdd61, 2026-08-22) - this fork: https://github.com/CageTV/MaxsuCombatEscape-ng
+Original mod: Better Combat Escape by Maxsu (Nexus mod 72901); NG port by doodlum.
+
+Licence: GNU General Public License v3.0 or later, with the modding exception in EXCEPTIONS.md (see COPYING / LICENSE.txt).
+The DLL links alandtse's CommonLibSSE-NG (GPL-3.0 with a modding exception, https://github.com/alandtse/CommonLibSSE-NG),
+so it can only be distributed under the GPL. The complete corresponding source is this repository.
+
+Changes in this fork: see FORK-NOTES.md (Actor vtable slots for IsInCombat/StopCombat fixed; build through ng.cmake).
